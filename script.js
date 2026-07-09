@@ -54,8 +54,27 @@ const stepCards = document.querySelectorAll(".process-step-card");
 const displayImage = document.getElementById("process-display-image");
 
 if (stepCards.length && displayImage) {
+  const gifCache = new Map();
+  let switchToken = 0;
+
+  // Preload all process GIFs once.
+  stepCards.forEach((card) => {
+    const src = card.dataset.gif;
+    if (!src || gifCache.has(src)) return;
+
+    const img = new Image();
+    img.src = src;
+    gifCache.set(src, img);
+  });
+
   stepCards.forEach((card) => {
     card.addEventListener("click", () => {
+      const gif = card.dataset.gif;
+      if (!gif || displayImage.src.endsWith(gif)) return;
+
+      switchToken += 1;
+      const token = switchToken;
+
       stepCards.forEach((c) => {
         c.classList.remove("is-active");
         c.setAttribute("aria-selected", "false");
@@ -64,14 +83,22 @@ if (stepCards.length && displayImage) {
       card.classList.add("is-active");
       card.setAttribute("aria-selected", "true");
 
-      const gif = card.dataset.gif;
-
       displayImage.style.opacity = "0";
 
-      setTimeout(() => {
+      const cached = gifCache.get(gif) || new Image();
+
+      const showNewGif = () => {
+        if (token !== switchToken) return;
         displayImage.src = gif;
         displayImage.style.opacity = "1";
-      }, 120);
+      };
+
+      if (cached.complete) {
+        showNewGif();
+      } else {
+        cached.onload = showNewGif;
+        cached.src = gif;
+      }
     });
   });
 }
