@@ -5,10 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prompts to Proxies</title>
   <meta name="description" content="Prompts to Proxies: Emulating Human Preferences via a Compact LLM Ensemble.">
+  <link rel="canonical" href="https://bingchen-wang.github.io/p2p-website/">
+  <meta name="theme-color" content="#faf9f5">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bingchen-wang.github.io/p2p-website/">
+  <meta property="og:title" content="Prompts to Proxies">
+  <meta property="og:description" content="Emulating human preferences via a compact LLM ensemble. NeurIPS 2026.">
+  <meta property="og:image" content="https://bingchen-wang.github.io/p2p-website/assets/p2p_logo_light.png">
+  <meta property="og:image:width" content="720">
+  <meta property="og:image:height" content="424">
+  <meta property="og:image:alt" content="P2P logo: a chameleon on the letters P2P">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Prompts to Proxies">
+  <meta name="twitter:description" content="Emulating human preferences via a compact LLM ensemble. NeurIPS 2026.">
+  <meta name="twitter:image" content="https://bingchen-wang.github.io/p2p-website/assets/p2p_logo_light.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <div class="site-shell">
@@ -17,150 +34,184 @@
         <img src="assets/reconstruction_header.png" alt="">
     </div>
 
-    <div class="hero-topline reveal hero-item">Under review · project page</div>
-    <h1 class="site-title reveal hero-item">Prompts to Proxies</h1>
-    <p class="site-subtitle reveal hero-item">
-        Reconstructing population preferences from a compact LLM ensemble — no finetuning,
-        no demographics, under $1 per survey.
-    </p>
-    <p class="authors reveal hero-item">Bingchen Wang · Zi-Yu Khoo · Jingtan Wang</p>
+    <div class="hero-copy">
+        <div class="mosaic reveal" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="eyebrow reveal">NeurIPS 2026 · Project page</p>
+        <h1 class="site-title reveal">Prompts to Proxies</h1>
+        <p class="site-subtitle reveal">
+            Reconstructing population preferences from a compact LLM ensemble — no finetuning,
+            no demographics, under $1 per ATP survey.
+        </p>
+        <p class="authors reveal">Bingchen Wang · Zi-Yu Khoo · Jingtan Wang</p>
 
-    <nav class="hero-actions reveal hero-item" aria-label="Primary">
-        <a class="button" href="https://arxiv.org/abs/2509.11311">Paper</a>
-        <a class="button button-secondary" href="#">Code (soon)</a>
-        <a class="button button-secondary" href="#bibtex">BibTeX</a>
-    </nav>
+        <nav class="hero-actions reveal" aria-label="Primary">
+            <a class="button" href="https://openreview.net/pdf?id=rSe48IgBEz">Paper</a>
+            <a class="button button-secondary" href="https://arxiv.org/abs/2509.11311">arXiv</a>
+            <a class="button button-secondary" href="https://github.com/bingchen-wang/P2P">Code</a>
+            <a class="button button-secondary" href="https://github.com/bingchen-wang/P2P/tree/main/docs">Docs</a>
+            <a class="button button-secondary" href="#bibtex">BibTeX</a>
+        </nav>
+    </div>
     </header>
 
     <main>
     <section class="section intro">
     <div class="section-rule"></div>
     <div class="section-head reveal">
-        <p class="kicker">At a glance</p>
+        <p class="eyebrow">At a glance</p>
         <h2>From problem to paradigm shift</h2>
     </div>
 
-    <div class="roadmap-layout">
-        <div class="roadmap reveal">
-        <div class="roadmap-line"></div>
+    <!-- A drafting table: the proxy (chameleon), the theory (Figure 1) and the
+         product (the P2P frame, waiting for its "2"). Pins mark what each point
+         is about; script.js draws the leader lines from card to pin. -->
+    <div class="glance reveal">
+        <div class="glance-scroll">
+        <div class="glance-stage">
+            <svg class="glance-sketch" viewBox="0 0 1100 440" aria-hidden="true">
+                <defs>
+                    <marker id="sketch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                        <path d="M1 1 L9 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                    </marker>
+                </defs>
+                <g class="sketch-marks">
+                    <path d="M4 12 H20 M12 4 V20 M1080 12 H1096 M1088 4 V20 M4 428 H20 M12 420 V436 M1080 428 H1096 M1088 420 V436"/>
+                </g>
+                <path class="sketch-arc" d="M175 216 C250 -70, 830 -70, 930 260" marker-end="url(#sketch-arrow)"/>
+                <text class="sketch-note" x="552" y="34" text-anchor="middle">becomes the “2”</text>
+                <rect class="sketch-slot" x="890" y="242" width="80" height="80" rx="6"/>
+                <text class="sketch-label" x="20" y="202">A · Proxy agent</text>
+                <text class="sketch-label" x="290" y="422">B · Functional basis</text>
+                <text class="sketch-label" x="760" y="382">C · P2P frame</text>
+            </svg>
 
-        <div class="roadmap-item">
-            <div class="roadmap-node"></div>
-            <div class="roadmap-content">
-            <p class="roadmap-label">Problem</p>
-            <p>Large language models are increasingly used as proxies for human subjects in social science research, but their scientific value depends on external validity: synthetic agents must faithfully reflect the preferences of the populations they are meant to emulate.</p>
-            </div>
+            <img class="sheet sheet-proxy" src="assets/chameleon_blueprint.png" width="1489" height="1056" decoding="async"
+                alt="Blueprint sketch of a chameleon, standing for an LLM proxy agent.">
+            <img class="sheet sheet-basis" src="assets/figure1_blueprint.png" width="1452" height="1083" decoding="async"
+                alt="Blueprint of the functional basis view: preference vectors projected onto a lower dimension, recovered through a functional basis, and observed through proxy agents.">
+            <img class="sheet sheet-frame" src="assets/P2P_frame_blueprint.png" width="1717" height="916" decoding="async"
+                alt="Blueprint of the letters P and P with an empty slot between them for the 2.">
+
+            <span class="glance-pin" data-pin="1" style="left: 11%; top: 63.8%;">1</span>
+            <span class="glance-pin" data-pin="2" style="left: 47.2%; top: 38.2%;">2</span>
+            <span class="glance-pin" data-pin="3" style="left: 55.2%; top: 66.6%;">3</span>
+            <span class="glance-pin" data-pin="4" style="left: 94%; top: 63%;">4</span>
+        </div>
+        </div>
+        <p class="glance-hint" aria-hidden="true">Swipe to pan the drawing</p>
+
+        <div class="glance-cards">
+            <article class="glance-card glance-card-1">
+                <p class="glance-label"><span class="glance-num">01</span>Problem</p>
+                <p>Large language models are increasingly used as proxies for human subjects in social science research, but their scientific value depends on external validity: synthetic agents must faithfully reflect the preferences of the populations they are meant to emulate.</p>
+            </article>
+
+            <article class="glance-card glance-card-2">
+                <p class="glance-label"><span class="glance-num">02</span>Why rethink it</p>
+                <p>Existing preference-alignment paradigms typically rely on demographic profiling or finetuning a single one-size-fits-all model. These approaches are resource-intensive, often require sensitive data and substantial compute, and do not directly explain how population-level preference heterogeneity should be reconstructed.</p>
+            </article>
+
+            <article class="glance-card glance-card-3">
+                <p class="glance-label"><span class="glance-num">03</span>Idea</p>
+                <p>We introduce <em>preference reconstruction theory</em>, which treats preference alignment as a problem of representation learning and statistical inference. Instead of matching profiles, it constructs an expressive basis of proxy agents and recovers population-level preferences through weighted aggregation.</p>
+            </article>
+
+            <article class="glance-card glance-card-4">
+                <p class="glance-label"><span class="glance-num">04</span>Result</p>
+                <p>Implemented as a two-stage system, P2P requires <b>no finetuning</b> and <b>no sensitive demographic data</b>, achieves an average test MSE of <b>0.014</b> across 14 ATP waves, runs at roughly <b>$0.8 per survey</b>, and yields distinctive empirical insights unavailable under demographic-matching approaches.</p>
+            </article>
         </div>
 
-        <div class="roadmap-item">
-            <div class="roadmap-node"></div>
-            <div class="roadmap-content">
-            <p class="roadmap-label">Why rethink it</p>
-            <p>Existing preference-alignment paradigms typically rely on demographic profiling or finetuning a single one-size-fits-all model. These approaches are resource-intensive, often require sensitive data and substantial compute, and do not directly explain how population-level preference heterogeneity should be reconstructed.</p>
-            </div>
-        </div>
-
-        <div class="roadmap-item">
-            <div class="roadmap-node"></div>
-            <div class="roadmap-content">
-            <p class="roadmap-label">Idea</p>
-            <p>We introduce <em>preference reconstruction theory</em>, which treats preference alignment as a problem of representation learning and statistical inference. Instead of matching profiles, it constructs an expressive basis of proxy agents and recovers population-level preferences through weighted aggregation.</p>
-            </div>
-        </div>
-
-        <div class="roadmap-item">
-            <div class="roadmap-node"></div>
-            <div class="roadmap-content">
-            <p class="roadmap-label">Result</p>
-            <p>Implemented as a two-stage system, P2P requires <b>no finetuning</b> and <b>no sensitive demographic data</b>, achieves an average test MSE of <b>0.014</b> across 14 ATP waves, runs at roughly <b>$0.8 per survey</b>, and yields distinctive empirical insights unavailable under demographic-matching approaches.</p>
-            </div>
-        </div>
-        </div>
-
-        <aside class="roadmap-rail reveal" aria-label="Conceptual illustration and project logo">
-        <figure class="roadmap-figure">
-            <img src="assets/figure1.png" alt="Functional basis view of preference reconstruction.">
-        </figure>
-
-        <div class="roadmap-logo">
-            <img src="assets/p2p_logo.png" alt="P2P project logo">
-        </div>
-        </aside>
+        <svg class="glance-leaders" aria-hidden="true"></svg>
     </div>
     </section>
 
 
-    <section class="section process-section">
+    <section class="section process-section" id="how">
         <div class="section-rule"></div>
         <div class="section-head reveal">
-            <p class="kicker">How it works</p>
+            <p class="eyebrow">How it works</p>
             <h2>Preference reconstruction in three steps</h2>
         </div>
 
         <div class="process-interactive">
-            <div class="process-steps" role="tablist" aria-label="P2P process steps">
+            <div class="process-steps" role="tablist" aria-label="P2P process steps" aria-orientation="vertical">
             <button
                 class="process-step-card is-active"
+                id="step-tab-1"
                 type="button"
                 role="tab"
                 aria-selected="true"
+                tabindex="0"
                 aria-controls="process-panel"
                 data-gif="assets/step1.gif"
+                data-caption="Attributes from the bank are instantiated and combined into agent endowments that span the preference space."
             >
                 <span class="step-number">01</span>
+                <span class="step-stage"><span class="step-stage-lead">Stage 1 · </span>Generate</span>
                 <span class="step-card-title">Build a diverse agent pool</span>
-                <span class="step-card-text">
-                Stage 1 uses a structured attribute bank and entropy-guided adaptive sampling to generate endowments spanning the latent preference space.
-                </span>
+                <span class="step-card-text">Stage 1 uses a structured attribute bank and entropy-guided adaptive sampling to generate endowments spanning the latent preference space.</span>
             </button>
-
             <button
                 class="process-step-card"
+                id="step-tab-2"
                 type="button"
                 role="tab"
                 aria-selected="false"
+                tabindex="-1"
                 aria-controls="process-panel"
                 data-gif="assets/step2.gif"
+                data-caption="Each agent answers the survey question, and the weights are tuned until the pooled answers match the survey ground truth."
             >
                 <span class="step-number">02</span>
+                <span class="step-stage"><span class="step-stage-lead">Stage 2 · </span>Aggregate</span>
                 <span class="step-card-title">Select a compact ensemble</span>
-                <span class="step-card-text">
-                Stage 2 uses L1-regularized regression to identify a weighted subset of agents whose aggregate responses match observed survey data.
-                </span>
+                <span class="step-card-text">Stage 2 fits constrained regression to find weights on the agents whose combined answers match the observed survey.</span>
             </button>
-
             <button
                 class="process-step-card"
+                id="step-tab-3"
                 type="button"
                 role="tab"
                 aria-selected="false"
+                tabindex="-1"
                 aria-controls="process-panel"
                 data-gif="assets/step3.gif"
+                data-caption="The weighted ensemble answers questions it was not fitted on, and its answers are compared with the survey."
             >
                 <span class="step-number">03</span>
+                <span class="step-stage"><span class="step-stage-lead">Then · </span>Validate</span>
                 <span class="step-card-title">Validate on held-out questions</span>
-                <span class="step-card-text">
-                The final stage checks whether the reconstructed ensemble generalizes beyond calibration and tracks population-level preferences out of sample.
-                </span>
+                <span class="step-card-text">Finally, P2P checks whether the reconstructed ensemble generalizes beyond calibration and tracks population-level preferences out of sample.</span>
             </button>
             </div>
 
-            <div class="process-display reveal" id="process-panel" role="tabpanel">
-            <div class="process-display-media">
-                <img
-                id="process-display-image"
-                src="assets/step1.gif"
-                alt="Animated illustration for Step 1 of P2P"
-                >
+            <!-- Phones only: the active step's title and text, under the compact step row. -->
+            <div class="process-current" aria-hidden="true">
+                <p class="process-current-title">Build a diverse agent pool</p>
+                <p class="process-current-text">Stage 1 uses a structured attribute bank and entropy-guided adaptive sampling to generate endowments spanning the latent preference space.</p>
             </div>
-            </div>
+
+            <figure class="process-display reveal" id="process-panel" role="tabpanel" aria-labelledby="step-tab-1" data-step="1">
+                <div class="process-display-media">
+                    <img
+                    id="process-display-image"
+                    src="assets/step1.gif"
+                    alt="Animated illustration for Step 1 of P2P"
+                    >
+                </div>
+                <figcaption>
+                    <span class="process-caption-num" id="process-caption-num">01</span>
+                    <span id="process-display-caption">Attributes from the bank are instantiated and combined into agent endowments that span the preference space.</span>
+                </figcaption>
+            </figure>
         </div>
         </section>
 
       <section class="section results">
         <div class="section-rule"></div>
         <div class="section-head reveal">
-          <p class="kicker">Key results</p>
+          <p class="eyebrow">Key results</p>
           <h2>Efficient, accessible, and empirically validated</h2>
         </div>
 
@@ -170,12 +221,12 @@
             <span class="stat-label">Average test MSE</span>
           </div>
           <div class="stat">
-            <span class="stat-value">43%</span>
-            <span class="stat-label">Improvement over best baseline</span>
+            <span class="stat-value">41%</span>
+            <span class="stat-label">Mean per-wave improvement over best baseline</span>
           </div>
           <div class="stat">
             <span class="stat-value">$0.8</span>
-            <span class="stat-label">Cost per survey</span>
+            <span class="stat-label">Cost per ATP survey</span>
           </div>
           <div class="stat">
             <span class="stat-value">14</span>
@@ -184,9 +235,10 @@
         </div>
 
         <div class="results-grid reveal">
-          <div class="results-card">
-            <p class="mini-kicker">ATP benchmark</p>
+          <div class="results-card table-card">
+            <p class="eyebrow">ATP benchmark</p>
             <table class="results-table">
+              <caption>Table 1: averages across 14 ATP waves; each method evaluated over 3 runs. Costs in USD.</caption>
               <thead>
                 <tr>
                   <th>Method</th>
@@ -198,7 +250,7 @@
               <tbody>
                 <tr>
                   <td>Vanilla</td>
-                  <td>0.026</td>
+                  <td>0.025</td>
                   <td>0.45</td>
                   <td>$0.7</td>
                 </tr>
@@ -219,7 +271,7 @@
           </div>
 
           <div class="results-card spotlight">
-            <p class="mini-kicker">Interpretation</p>
+            <p class="eyebrow">Interpretation</p>
             <p>
               P2P frames accessibility as a design principle rather than a compromise: no finetuning,
               no demographic profiling, CPU-friendly deployment, and strong performance under modest
@@ -227,7 +279,10 @@
             </p>
 
             <p class="results-note">
-                Cost estimates are based on Gemini-2.0-flash. <br>PERSONA cost only covers the response elicitation stage—higher if generation tokens are included.
+                All three methods use the same Stage 2 constrained lasso aggregation. The 41% improvement is the mean of per-wave test MSE reductions relative to the best baseline in each wave.
+            </p>
+            <p class="results-note">
+                Cost estimates are based on Gemini-2.0-flash. PERSONA cost only covers the response elicitation stage—higher if persona generation tokens are included.
             </p>
           </div>
         </div>
@@ -236,7 +291,7 @@
       <section class="section paradigm-section">
         <div class="section-rule"></div>
         <div class="section-head reveal">
-            <p class="kicker">Paradigmatic contribution</p>
+            <p class="eyebrow">Paradigmatic contribution</p>
             <h2>Beyond digital twins</h2>
         </div>
 
@@ -277,11 +332,14 @@
             </div>
             </div>
 
-            <figure class="figure-block figure-actual reveal">
-            <img src="assets/figure3.png" alt="Error analysis comparing transfer and native alignment on Hong Kong WVS.">
+            <!-- Camera-ready Figure 3, page 9; all four panels rendered together. -->
+            <figure class="figure-block figure-blueprint reveal" id="figure-3">
+            <a class="figure-image-link" href="assets/figure3.png" aria-label="View Figure 3 at full size">
+                <img src="assets/figure3.png" width="920" height="886" loading="lazy" decoding="async" alt="Four panels compare US and Hong Kong WVS responses (r = 0.848), test MSE (US-native 0.0149, HK-transfer 0.0208, HK-native 0.0242), error versus cultural divergence, and native win rates by divergence and data split.">
+            </a>
             <figcaption>
-                Figure 3. A more expressive basis generated for the US, after Stage 2 weight refitting, outperforms
-                HK-native generation on average, while localization remains helpful on culturally divergent questions.
+                <span class="figure-label">Figure 3.</span> Basis expressiveness vs. locale matching on WVS HK. After refitting Stage 2 weights to HK responses, the US-generated basis achieves lower test MSE (0.0208) than HK-native generation (0.0242). Reconstruction error grows with US–HK response divergence, while HK-native generation wins more often on culturally divergent questions.
+                <a href="assets/figure3.png">View full-size figure</a>.
             </figcaption>
             </figure>
         </div>
@@ -290,78 +348,149 @@
         <section class="section history-section">
             <div class="section-rule"></div>
             <div class="section-head reveal">
-                <p class="kicker">Record</p>
+                <p class="eyebrow">Record</p>
                 <h2>Submission history</h2>
             </div>
 
-            <div class="timeline reveal" aria-label="Submission history timeline">
-                <div class="timeline-line"></div>
+            <!-- The outcome first; the full record opens on demand. -->
+            <details class="history reveal">
+                <summary class="history-summary">
+                    <span class="history-tile tile" aria-hidden="true"></span>
+                    <span class="history-headline"><strong>Accepted at NeurIPS 2026</strong> · Main Track, poster</span>
+                    <span class="history-toggle">Full record</span>
+                </summary>
 
-                <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">25 Jul 2025</p>
-                <p class="timeline-text">Submitted to AAAI-26</p>
-                </div>
+                <div class="history-body">
+                    <p class="history-legend" aria-hidden="true">
+                        <span class="legend-tile legend-submission"></span>Submission
+                        <span class="legend-tile legend-arxiv"></span>arXiv
+                    </p>
+                    <div class="timeline" aria-label="Submission history timeline">
+                    <div class="timeline-line"></div>
 
-                <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">14 Sep 2025</p>
-                <p class="timeline-text">arXiv v1 posted</p>
-                </div>
+                    <div class="timeline-item">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">25 Jul 2025</p>
+                    <p class="timeline-text">AAAI-26</p>
+                    </div>
 
-                <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">18 Sep 2025</p>
-                <p class="timeline-text">Submitted to ICLR-26</p>
-                </div>
+                    <div class="timeline-item timeline-item-arxiv">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">14 Sep 2025</p>
+                    <p class="timeline-text">arXiv v1</p>
+                    </div>
 
-                <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">23 Jan 2026</p>
-                <p class="timeline-text">Submitted to ICML-26</p>
-                </div>
+                    <div class="timeline-item">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">18 Sep 2025</p>
+                    <p class="timeline-text">ICLR-26</p>
+                    </div>
 
-                <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">28 Jan 2026</p>
-                <p class="timeline-text">arXiv v2 posted</p>
-                </div>
+                    <div class="timeline-item">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">23 Jan 2026</p>
+                    <p class="timeline-text">ICML-26</p>
+                    </div>
 
-                <div class="timeline-item timeline-item-current">
-                <div class="timeline-dot"></div>
-                <p class="timeline-date">Current</p>
-                <p class="timeline-text">Under review</p>
+                    <div class="timeline-item timeline-item-arxiv">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">28 Jan 2026</p>
+                    <p class="timeline-text">arXiv v2</p>
+                    </div>
+
+                    <div class="timeline-item">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">01 May 2026</p>
+                    <p class="timeline-text">NeurIPS-26</p>
+                    </div>
+
+                    <div class="timeline-item timeline-item-current">
+                    <div class="timeline-dot tile"></div>
+                    <p class="timeline-date">25 Sep 2026</p>
+                    <p class="timeline-text">NeurIPS 2026 · accepted</p>
+                    </div>
+                    </div>
                 </div>
-            </div>
+            </details>
             </section>
+
+      <section class="section use-section" id="use">
+        <div class="section-rule"></div>
+        <div class="section-head reveal">
+          <p class="eyebrow">Software</p>
+          <h2>Use P2P</h2>
+        </div>
+
+        <div class="use-grid reveal">
+          <div class="use-copy">
+            <p>
+              P2P is open source under the MIT licence and needs Python 3.12 or later.
+              Release <a href="https://github.com/bingchen-wang/P2P/releases/tag/v0.1.0">v0.1.0</a> is the version used for the paper.
+              The offline demo runs the whole pipeline on a small fictional survey:
+              no API key, no network, no cost.
+            </p>
+            <pre class="code-block">git clone https://github.com/bingchen-wang/P2P.git
+cd P2P
+python -m pip install -e ".[dev]"</pre>
+            <ul class="use-links">
+              <li><a href="https://github.com/bingchen-wang/P2P">Code on GitHub</a></li>
+              <li><a href="https://github.com/bingchen-wang/P2P/releases/tag/v0.1.0">Release v0.1.0</a></li>
+              <li><a href="https://github.com/bingchen-wang/P2P/tree/main/docs">Documentation</a></li>
+            </ul>
+          </div>
+
+          <img class="use-logo" src="assets/p2p_logo_light.png" alt="P2P software logo" width="720" height="424" loading="lazy" decoding="async">
+        </div>
+      </section>
 
       <section class="section citation-section" id="bibtex">
         <div class="section-rule"></div>
         <div class="section-head reveal">
-          <p class="kicker">Citation</p>
+          <p class="eyebrow">Citation</p>
           <h2>BibTeX</h2>
         </div>
 
-        <div class="bibtex-wrap reveal">
-          <pre class="bibtex-block" id="bibtex-text">@misc{wang2026promptsproxiesemulatinghuman,
-                title={Prompts to Proxies: Emulating Human Preferences via a Compact LLM Ensemble}, 
-                author={Bingchen Wang and Zi-Yu Khoo and Jingtan Wang},
-                year={2026},
-                eprint={2509.11311},
-                archivePrefix={arXiv},
-                primaryClass={cs.AI},
-                url={https://arxiv.org/abs/2509.11311}, 
-          }</pre>
-          <button class="copy-button" id="copy-bibtex" type="button">Copy</button>
+        <div class="bibtex-list reveal">
+          <div class="bibtex-item">
+            <p class="bibtex-label" id="bibtex-paper-label"><strong>Paper.</strong> If you build on the method or the empirical results.</p>
+            <pre class="bibtex-block" id="bibtex-paper">@inproceedings{wang2026prompts,
+  title     = {Prompts to Proxies: Emulating Human Preferences via a Compact {LLM} Ensemble},
+  author    = {Wang, Bingchen and Khoo, Zi-Yu and Wang, Jingtan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</pre>
+            <button class="copy-button" type="button" data-copy="bibtex-paper" aria-describedby="bibtex-paper-label">Copy</button>
+          </div>
+
+          <div class="bibtex-item">
+            <p class="bibtex-label" id="bibtex-software-label"><strong>Software.</strong> If you use the P2P software.</p>
+            <pre class="bibtex-block" id="bibtex-software">@software{wang2026p2p,
+  author  = {Wang, Bingchen},
+  title   = {{P2P}: Prompts to Proxies},
+  version = {0.1.0},
+  year    = {2026},
+  url     = {https://github.com/bingchen-wang/P2P}
+}</pre>
+            <button class="copy-button" type="button" data-copy="bibtex-software" aria-describedby="bibtex-software-label">Copy</button>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-    <p class="footer-credit">© 2026 Bingchen Wang.</p>
+    <div class="footer-meta">
+        <div class="mosaic mosaic-row" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="footer-credit">© 2026 Bingchen Wang</p>
+        <nav class="footer-links" aria-label="Project links">
+            <a href="https://openreview.net/pdf?id=rSe48IgBEz">Paper</a>
+            <a href="https://arxiv.org/abs/2509.11311">arXiv</a>
+            <a href="https://github.com/bingchen-wang/P2P">Code</a>
+            <a href="https://github.com/bingchen-wang/P2P/tree/main/docs">Docs</a>
+        </nav>
+    </div>
 
     <div class="footer-gif" aria-hidden="true">
-        <img src="assets/p2p_wordplay.gif" alt="">
+        <img src="assets/p2p_wordplay.gif" alt="" loading="lazy" decoding="async">
     </div>
     </footer>
   </div>
