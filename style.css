@@ -23,17 +23,17 @@
   --blueprint-line: rgba(36, 73, 160, 0.16);
   --blueprint-line-strong: rgba(36, 73, 160, 0.45);
 
-  /* Mosaic tiles: decoration only, never text. Three muted families taken
-     from the step animations (blue, green, amber), each deep / mid / light. */
-  --tile-blue-deep: #3a5d84;
-  --tile-blue-mid: #5f83ac;
-  --tile-blue-light: #98b4d4;
-  --tile-green-deep: #45653b;
-  --tile-green-mid: #6a8b5f;
-  --tile-green-light: #a0ba98;
-  --tile-amber-deep: #a25d37;
-  --tile-amber-mid: #c29558;
-  --tile-amber-light: #ddc497;
+  /* Mosaic tiles: decoration only, never text. The poster's stage palette
+     (Stage 1 azure, Stage 2 leaf green, validation marigold), each deep / mid / light. */
+  --tile-blue-deep: #1778b2;    /* poster Stage 1: azure */
+  --tile-blue-mid: #42a9e0;
+  --tile-blue-light: #c1e3fe;
+  --tile-green-deep: #267010;   /* poster Stage 2: leaf green */
+  --tile-green-mid: #68a639;
+  --tile-green-light: #c8e9c0;
+  --tile-amber-deep: #ca7e1d;   /* poster validation step: marigold */
+  --tile-amber-mid: #ec9d44;
+  --tile-amber-light: #fbd7b3;
 
   /* Type */
   --sans: Inter, "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
@@ -1125,37 +1125,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* Use P2P ---------------------------------------------------------------- */
-
-.use-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  gap: 64px;
-  align-items: center;
-}
-
-.use-copy p {
-  margin: 0;
-  color: var(--ink-2);
-}
-
-.use-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin: 18px 0 0;
-  padding: 0;
-  list-style: none;
-  font-weight: 500;
-}
-
-.use-copy .code-block {
-  margin-top: 20px;
-}
-
-.use-logo {
-  justify-self: center;
-}
+/* Studio preview styles are in studio-preview.css. */
 
 /* Citation --------------------------------------------------------------- */
 
@@ -1299,8 +1269,7 @@ a:hover {
      instead of widening the page. */
   .process-interactive,
   .results-grid,
-  .paradigm-grid,
-  .use-grid {
+  .paradigm-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -1325,11 +1294,6 @@ a:hover {
   .glance-leaders,
   .sketch-label {
     display: none;
-  }
-
-  .use-logo {
-    max-width: 240px;
-    justify-self: start;
   }
 
   /* Steps become a compact row of three; the active step's text sits below it. */
